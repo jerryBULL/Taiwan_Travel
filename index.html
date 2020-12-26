@@ -12,20 +12,32 @@
     <body>
         <div id="vue_app">
             <div class="select-box flex-between vw50">
-                <select name="" id="select_city">
-                    <option value="-1">請選擇縣市</option>
-                    <option v-for="(item, key) in citys" :value="key">{{item}}</option>
+                <select name="" id="select_city" v-model="now_select.city">
+                    <option value="全部地區">全部地區</option>
+                    <option v-for="(item) in citys" :value="item">{{item}}</option>
                 </select>
-                <select name="" id="select_category">
+                <select name="" id="select_category" @change="GetTravelData($event)">
                     <option v-for="(item, key) in category" :value="key">{{item}}</option>
                 </select>
-                <input id="select_start_time" type="date">
-                <input id="select_end_time" type="date">
+                <input id="select_start_time" type="date" v-model="now_select.interval_start_time">
+                <input id="select_end_time" type="date" v-model="now_select.interval_end_time">
             </div>
-            <div class="travel-info-box" v-for="(item, key) in travel_data">
-                <div>{{ item.title }}</div>
-                <div>{{ item.showInfo[0] === undefined ?"sss":"ss" }}</div>
-                <div>{{ item.startDate }}-{{ item.endDate }}</div>
+            <div class="travel-info-box">
+                <div v-if="is_api_run">
+                    <p>加載中</p>
+                </div>
+                <div v-else-if="ExhibitionData == ''" class="">         
+                    <p>無活動，敬請期待</p>
+                </div>
+                <div v-else v-for="(item,index) in ExhibitionData" class="">
+                    <a :href="item.sourceWebPromote">{{item.title}}</a>
+                    <p>位置：{{item.showInfo[0]["location"]}}</p>
+                    <p>價格：{{item.showInfo[0]["price"] ? item.showInfo[0]["price"]:"免費"}}</p>
+                    <p>開始時間：{{item.startDate}}</p>
+                    <p>結束時間：{{item.endDate}}</p>
+                    <p>詳細介紹：{{item.descriptionFilterHtml? "":"無介紹資訊"}}</p>
+                    <p>{{item.descriptionFilterHtml}}</p>
+                </div>
             </div>
         </div>
     </body>
