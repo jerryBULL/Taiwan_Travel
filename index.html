@@ -22,19 +22,21 @@
                 <input id="select_start_time" type="date" v-model="now_select.interval_start_time">
                 <input id="select_end_time" type="date" v-model="now_select.interval_end_time">
             </div>
-            <div class="travel-info-box">
+            <div class="travel-box vw75">
                 <div v-if="is_api_run">
                     <p>加載中</p>
                 </div>
-                <div v-else-if="ExhibitionData == ''" class="">         
+                <div v-else-if="ExhibitionData == ''">         
                     <p>無活動，敬請期待</p>
                 </div>
-                <div v-else v-for="(item,index) in ExhibitionData" class="">
+                <div v-else v-for="(item,index) in ExhibitionData" class="travel-info-box">
                     <a :href="item.sourceWebPromote">{{item.title}}</a>
+                    <hr>
                     <p>位置：{{item.showInfo[0]["location"]}}</p>
                     <p>價格：{{item.showInfo[0]["price"] ? item.showInfo[0]["price"]:"免費"}}</p>
                     <p>開始時間：{{item.startDate}}</p>
                     <p>結束時間：{{item.endDate}}</p>
+                    <hr>
                     <p>詳細介紹：{{item.descriptionFilterHtml? "":"無介紹資訊"}}</p>
                     <p>{{item.descriptionFilterHtml}}</p>
                 </div>
