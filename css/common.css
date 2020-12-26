@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline:none;
+    box-sizing: border-box;
+}
+
+ul,li,ol{
+    list-style-type: none;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: 0;
+}
+
+a{
+    text-decoration: none;
+    display: block;
+}
+
+/* flex */
+.flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.flex-around{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* 固定寬高 */
+.vw25{
+    width: 25vw !important;
+    margin: 0 auto;
+}
+.vw50{
+    width: 50vw !important;
+    margin: 0 auto;
+}
+.vw75{
+    width: 75vw !important;
+    margin: 0 auto;
+}
+.vw100{
+    width: 100vw !important;
+    margin: 0 auto;
+}
+.vh25{
+    height: 25vh !important;
+    margin: 0 auto;
+}
+.vh50{
+    height: 50vh !important;
+    margin: 0 auto;
+}
+.vh75{
+    height: 75vh !important;
+    margin: 0 auto;
+}
+.vh100{
+    height: 100vh !important;
+    margin: 0 auto;
+}
