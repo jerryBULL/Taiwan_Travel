@@ -2,32 +2,76 @@
 body{
     font-size: 1.3rem;
     font-family: 'Noto Sans TC', sans-serif;
+    background-color: #eff7ff;
+    line-height: 1.5;
+    overflow: hidden;
 }
 
 .select-box{
-    border: solid 1px blue;
+    position: fixed;
+    border: solid 3px #8a8ab6;
     padding: 10px;
-    margin: 10px auto;
+    margin: 10px;
     border-radius: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 7vh;
+}
+
+.select-box #select_city,#select_category,
+#select_start_time,#select_end_time{
+    padding: 10px;
+    border-radius: 10px;
+    border: solid 1px #a9a3a3;
+    background-color: #ffffff00;
+    font-weight: 600;
 }
 
 .travel-box{
-    border: solid 1px blue;
+    border: solid 3px #8a8ab6;
     border-radius: 15px;
-    padding: 10px;
+    padding: 30px;
     text-align: center;
     margin-bottom: 10px;
+    overflow-y: scroll;
+    height: 90vh;
+    top: 9vh;
+    position: relative;
+}
+
+.travel-box::-webkit-scrollbar {
+    width:10px;
+}
+
+/*滾動條裡面軌道樣式*/
+.travel-box::-webkit-scrollbar-track {
+    margin: 10px;
+    border-radius:20px;
+    background:rgba(0,0,0,0.1);
+}
+
+/*滾動條裡面小方塊樣式*/
+.travel-box::-webkit-scrollbar-thumb {
+    height: 50px;
+    border-radius:20px;
+    background:#7ed5ff;
 }
 
 .travel-info-box{
-    border: solid 1px blue;
+    border: solid 2px #8a8ab6;
     border-radius: 15px;
     padding: 15px 50px;
     margin: 10px;
     text-align: left;
+    background-color: #edf9ff;
+    transition: all 0.5s;
+}
+.travel-info-box:hover{
+    box-shadow: 20px 20px 20px 0px #00000099;
 }
 .travel-info-box a{
-    background: yellow;
+    color: #46a9ff;
+    background: #ffffdf;
     padding: 5px;
     margin: 0 auto;
     margin-bottom: 10px;
@@ -37,17 +81,33 @@ body{
     transition: all ease 1s;
 }
 .travel-info-box a:hover{
-    background: blue;
-    color: yellow;
+    background: #46a9ff;
+    color: #ffffdf;
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2);
 }
 .travel-info-box hr{
     margin: 5px auto;
     width: 90%;
-    height: 2px;
+    height: 3px;
     border: none;
-    background: linear-gradient(to right,blue,yellow,blue);
+    background: linear-gradient(to right,#46a9ff,#e0e000,#46a9ff);
 }
+.travel-info-box .show-more-info{
+    user-select:none;
+    cursor: pointer;
+    width: fit-content;
+    padding: 0px 10px;
+    border-radius: 10px;
+    margin: 10px auto 0px auto;
+    color: #46a9ff;
+    background: #ffffdf;
+    transition: all 0.5s;
+}
+.travel-info-box .show-more-info:hover{
+    color: #ffffdf;
+    background: #46a9ff;
+}
+
 /*
 @media (max-width: 767px) {
 }
