@@ -22,6 +22,7 @@ $(function(){
                     interval_end_time:''
                 },
                 is_api_run:true,
+                open_id:'-1',
             }
         },
         mounted (){
@@ -66,7 +67,15 @@ $(function(){
             }
         },
         methods: {
-            GetTravelData: function (event,category){
+            ShowMoreInfo:function name(index){
+                let v_this = this;
+                if(index == v_this.open_id){
+                    v_this.open_id = -1;
+                    return;
+                }
+                v_this.open_id = index;
+            },
+            GetTravelData:function (event,category){
                 category = category ? category : event.target.value;
                 let v_this = this;
                 v_this.travel_data = "";
